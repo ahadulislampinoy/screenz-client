@@ -1,6 +1,6 @@
 # Screenz
 
-MERN stack application for Movies, and Series.
+Application for Movies, and Series.
 
 ## Resources & Credits
 
@@ -12,3 +12,4 @@ MERN stack application for Movies, and Series.
 - React
 - NextJS
 - Next Auth
+- Firebase
