@@ -1,10 +1,15 @@
 import { Inter } from "@next/font/google";
+import { getSession } from "next-auth/react";
 import Head from "next/head";
+import Brands from "../components/Brands";
 import Header from "../components/Header";
-
+import MoviesCollection from "../components/MoviesCollection";
+import ShowsCollection from "../components/ShowsCollection";
+import Slider from "../components/Slider";
+import UpComing from "../components/UpComing";
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home({ upComing, popularMovies, popularShows }) {
   return (
     <>
       <Head>
@@ -13,17 +18,45 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Header />
+      <main>
+        <Slider />
+        <Brands />
+        <UpComing upComing={upComing} />
+        <MoviesCollection popularMovies={popularMovies} />
+        <ShowsCollection popularShows={popularShows} />
+      </main>
     </>
   );
 }
 
-export const getServersideProps = async (context) => {
+export async function getServerSideProps(context) {
   const session = await getSession(context);
+  // multiple fetch requests
+  const [upComingRes, popularMoviesRes, popularShowsRes] = await Promise.all([
+    fetch(
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.TMDB_API_KEY}`
+    ),
+    fetch(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=1`
+    ),
+    fetch(
+      `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=1`
+    ),
+  ]);
+  // convert responses to json
+  const [upComing, popularMovies, popularShows] = await Promise.all([
+    upComingRes.json(),
+    popularMoviesRes.json(),
+    popularShowsRes.json(),
+  ]);
+  // doing .results here because the data is nested under results
   return {
     props: {
       session,
+      upComing: upComing.results,
+      popularMovies: popularMovies.results,
+      popularShows: popularShows.results,
     },
   };
-};
+}
