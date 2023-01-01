@@ -18,7 +18,7 @@
     "react-dom": "18.2.0",
     "react-player": "^2.11.0",
     "react-responsive-carousel": "^3.2.23",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "swiper": "^8.4.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

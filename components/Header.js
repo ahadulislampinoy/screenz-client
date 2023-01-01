@@ -11,10 +11,8 @@ const Header = () => {
   const { data: session, status } = useSession();
 
   return (
-    <header className="sticky bg-[#040714] top-0 z-50 flex items-center px-10 md:px-12 h-[72px]">
-      <h1 className="text-white text-3xl font-bold cursor-pointer">
-        Screenz<span className="text-purple-500 font-extrabold">.</span>
-      </h1>
+    <header className="sticky bg-transparent backdrop-blur-lg backdrop-brightness-75 top-0 z-50 flex items-center px-10 md:px-12 h-20">
+      <h1 className="text-white text-3xl font-bold cursor-pointer">Screenz.</h1>
       <ul className="hidden ml-10 md:flex items-center space-x-6">
         <li className="header-link-list group">
           <HomeIcon className="h-4" />
@@ -24,14 +22,14 @@ const Header = () => {
         </li>
         <li className="header-link-list group">
           <FilmIcon className="h-4" />
-          <Link href="/" className="header-link">
+          <Link href="/movie" className="header-link">
             Movies
           </Link>
         </li>
         <li className="header-link-list group">
           <img src="/images/series-icon.svg" alt="" className="h-5" />
-          <Link href="/" className="header-link">
-            Series
+          <Link href="/show" className="header-link">
+            Shows
           </Link>
         </li>
         {status === "authenticated" && (
