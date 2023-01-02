@@ -42,7 +42,7 @@ const Header = () => {
         )}
         <li className="header-link-list group">
           <MagnifyingGlassIcon className="h-4" />
-          <Link href="/" className="header-link">
+          <Link href="/search" className="header-link">
             Search
           </Link>
         </li>
