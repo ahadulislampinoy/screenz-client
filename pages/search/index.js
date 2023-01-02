@@ -16,7 +16,7 @@ const Search = () => {
   //     .then((data) => setContent(data));
   // }, [type, search]);
 
-  // console.log("c", content, "t", type, "s", search);
+  // console.log("c", content, "t", type, "s", search)
   return (
     <section>
       <Head>
