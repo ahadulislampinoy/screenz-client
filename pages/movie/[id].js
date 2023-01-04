@@ -1,4 +1,4 @@
-import { XMarkIcon } from "@heroicons/react/24/solid";
+import { PlusIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import Image from "next/image";
@@ -7,7 +7,7 @@ import DisplayMainContent from "../../components/DisplayMainContent";
 import DisplayTrailer from "../../components/DisplayTrailer";
 import Header from "../../components/Header";
 
-const Movie = ({ movie }) => {
+const Movie = ({ movie, session }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
   const [showTrailer, setShowTrailer] = useState(false);
   const [showMainContent, setShowMainContent] = useState(false);
@@ -48,7 +48,7 @@ const Movie = ({ movie }) => {
             </button>
 
             <button
-              className="text-xs md:text-base bg-black/30 text-[#f9f9f9] border border-[#f9f9f9] flex items-center justify-center py-2.5 px-6 rounded hover:bg-[#c6c6c6]"
+              className="text-xs md:text-base bg-black/30 text-[#f9f9f9] border border-[#f9f9f9] flex items-center justify-center py-2.5 px-6 rounded hover:bg-black/50 transition-all duration-300"
               onClick={() => setShowTrailer(true)}
             >
               <img
@@ -58,6 +58,14 @@ const Movie = ({ movie }) => {
               />
               <span className="uppercase font-medium tracking-wide">
                 Trailer
+              </span>
+            </button>
+            <button className="rounded flex items-center justify-center bg-black/30 py-3 px-6 hover:bg-black/50 transition-all duration-300">
+              <div className="rounded-full border-2 border-white flex items-center justify-center w-8 h-8 cursor-pointer mr-2">
+                <PlusIcon className="h-6" />
+              </div>
+              <span className="uppercase font-medium tracking-wide">
+                Watchlist
               </span>
             </button>
           </div>
@@ -118,7 +126,7 @@ export const getServerSideProps = async (context) => {
 
   const { id } = context.query;
   const movie = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.TMDB_API_KEY}&language=en-US&append_to_response=videos`
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US&append_to_response=videos`
   ).then((res) => res.json());
 
   return {

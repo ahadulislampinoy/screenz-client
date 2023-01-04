@@ -26,7 +26,7 @@ export const getServerSideProps = async (context) => {
 
   const { id } = context.query;
   const shows = await fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.TMDB_API_KEY}&language=en-US`
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US`
   ).then((res) => res.json());
 
   return {

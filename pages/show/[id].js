@@ -33,7 +33,7 @@ const Show = ({ show }) => {
           </h1>
           <div className="flex items-center space-x-3 md:space-x-5">
             <button
-              className="text-xs md:text-base bg-black/30 text-[#f9f9f9] border border-[#f9f9f9] flex items-center justify-center py-2.5 px-6 rounded hover:bg-[#c6c6c6]"
+              className="text-xs md:text-base bg-black/30 text-[#f9f9f9] border border-[#f9f9f9] flex items-center justify-center py-2.5 px-6 rounded hover:bg-black/50 transition-all duration-300"
               onClick={() => setShowTrailer(true)}
             >
               <img
@@ -93,7 +93,7 @@ export const getServerSideProps = async (context) => {
 
   const { id } = context.query;
   const show = await fetch(
-    `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.TMDB_API_KEY}&language=en-US&append_to_response=videos`
+    `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US&append_to_response=videos`
   ).then((res) => res.json());
 
   return {
