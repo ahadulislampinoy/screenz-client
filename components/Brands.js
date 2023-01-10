@@ -4,7 +4,12 @@ const Brands = () => {
   return (
     <section className="flex flex-col md:flex-row justify-center items-center mt-10 gap-6 px-8 max-w-[1400px] mx-auto">
       <div className="brand group">
-        <Image src="/images/marvel.png" layout="fill" objectFit="cover" />
+        <Image
+          alt=""
+          src="/images/marvel.png"
+          layout="fill"
+          objectFit="cover"
+        />
         <video
           autoPlay
           loop
@@ -16,7 +21,12 @@ const Brands = () => {
       </div>
 
       <div className="brand group">
-        <Image src="/images/starwars.png" layout="fill" objectFit="cover" />
+        <Image
+          alt=""
+          src="/images/starwars.png"
+          layout="fill"
+          objectFit="cover"
+        />
         <video
           autoPlay
           loop
@@ -27,7 +37,12 @@ const Brands = () => {
         </video>
       </div>
       <div className="brand group">
-        <Image src="/images/disney.png" layout="fill" objectFit="cover" />
+        <Image
+          alt=""
+          src="/images/disney.png"
+          layout="fill"
+          objectFit="cover"
+        />
         <video
           autoPlay
           loop
@@ -39,7 +54,7 @@ const Brands = () => {
       </div>
 
       <div className="brand group">
-        <Image src="/images/pixar.png" layout="fill" objectFit="cover" />
+        <Image alt="" src="/images/pixar.png" layout="fill" objectFit="cover" />
         <video
           autoPlay
           loop
@@ -52,6 +67,7 @@ const Brands = () => {
 
       <div className="brand group">
         <Image
+          alt=""
           src="/images/national-geographic.png"
           layout="fill"
           objectFit="cover"

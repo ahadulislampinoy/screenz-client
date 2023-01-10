@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 const ShowThumbnail = ({ show }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
   const router = useRouter();
-  console.log(show.poster_path, show.backdrop_path);
 
   return (
     <section
@@ -12,6 +11,7 @@ const ShowThumbnail = ({ show }) => {
       onClick={() => router.push(`/show/${show.id}`)}
     >
       <Image
+        alt=""
         src={
           `${BASE_URL}${show.poster_path}` || `${BASE_URL}${show.backdrop_path}`
         }

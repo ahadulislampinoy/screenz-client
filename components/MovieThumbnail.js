@@ -11,6 +11,7 @@ const MovieThumbnail = ({ movie }) => {
       onClick={() => router.push(`/movie/${movie?.id}`)}
     >
       <Image
+        alt=""
         src={
           `${BASE_URL}${movie?.poster_path}` ||
           `${BASE_URL}${movie?.backdrop_path}`

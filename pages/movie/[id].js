@@ -22,6 +22,7 @@ const Movie = ({ movie, session }) => {
       <div className="relative z-50">
         <div className="relative min-h-[calc(100vh-72px)]">
           <Image
+            alt=""
             src={
               `${BASE_URL}${movie.backdrop_path}` ||
               `${BASE_URL}${movie.poster_path}`

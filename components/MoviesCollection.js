@@ -27,8 +27,8 @@ const MoviesCollection = ({ popularMovies }) => {
           },
         }}
       >
-        {popularMovies.map((movie) => (
-          <SwiperSlide>
+        {popularMovies.map((movie, i) => (
+          <SwiperSlide key={i}>
             <MovieThumbnail key={movie.id} movie={movie} />
           </SwiperSlide>
         ))}

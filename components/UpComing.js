@@ -26,8 +26,8 @@ const UpComing = ({ upComing }) => {
           },
         }}
       >
-        {upComing.map((movie) => (
-          <SwiperSlide>
+        {upComing.map((movie, i) => (
+          <SwiperSlide key={i}>
             <MovieThumbnail key={movie.id} movie={movie} />
           </SwiperSlide>
         ))}

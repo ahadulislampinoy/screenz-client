@@ -26,8 +26,8 @@ const ShowsCollection = ({ popularShows }) => {
           },
         }}
       >
-        {popularShows.map((show) => (
-          <SwiperSlide>
+        {popularShows.map((show, i) => (
+          <SwiperSlide key={i}>
             <ShowThumbnail key={show.id} show={show} />
           </SwiperSlide>
         ))}
