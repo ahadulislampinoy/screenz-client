@@ -34,7 +34,7 @@ const Header = () => {
         </li>
         {status === "authenticated" && (
           <li className="header-link-list group">
-            <PlusIcon className="h-4" />
+            <PlusIcon className="h-4 " />
             <Link href="/" className="header-link">
               Watchlist
             </Link>
