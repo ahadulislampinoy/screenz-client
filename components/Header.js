@@ -9,7 +9,6 @@ import Link from "next/link";
 
 const Header = () => {
   const { data: session, status } = useSession();
-  console.log(status);
 
   return (
     <header className="sticky bg-transparent backdrop-blur-lg backdrop-brightness-75 top-0 z-50 flex items-center px-10 md:px-12 h-20">
