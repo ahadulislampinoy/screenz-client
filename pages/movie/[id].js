@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import DisplayMainContent from "../../components/DisplayMainContent";
 import DisplayTrailer from "../../components/DisplayTrailer";
 import Header from "../../components/Header";
+import notFoundImg from "../../public/images/not-found.svg";
 
 const Movie = ({ movie, session }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
@@ -19,19 +20,20 @@ const Movie = ({ movie, session }) => {
         <title>{movie.title || movie.original_name}</title>
       </Head>
       <Header />
-      <div className="relative z-50">
-        <div className="relative min-h-[calc(100vh-72px)]">
+      <div className="relative">
+        <div className="relative h-screen">
           <Image
             alt=""
             src={
-              `${BASE_URL}${movie.backdrop_path}` ||
-              `${BASE_URL}${movie.poster_path}`
+              movie?.poster_path || movie?.backdrop_path
+                ? `${BASE_URL}${movie.backdrop_path || movie.poster_path}`
+                : notFoundImg
             }
             layout="fill"
             className="object-cover"
           />
         </div>
-        <div className="absolute inset-y-28 md:inset-y-auto md:bottom-10 inset-x-4 md:inset-x-12 space-y-6 z-50">
+        <div className="absolute bottom-0 left-0 bg-gradient-to-t from-[#000] to-transparent w-full p-4 py-24 px-4 md:px-12 space-y-6 z-50">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             {movie.title || movie.original_name}
           </h1>
@@ -61,7 +63,7 @@ const Movie = ({ movie, session }) => {
                 Trailer
               </span>
             </button>
-            <button className="rounded flex items-center justify-center bg-black/30 py-3 px-6 hover:bg-black/50 transition-all duration-300">
+            <button className="rounded flex items-center justify-center bg-black/30 py-3 px-6 hover:bg-black/50 transition-all duration-300 border">
               <div className="rounded-full border-2 border-white flex items-center justify-center w-8 h-8 cursor-pointer mr-2">
                 <PlusIcon className="h-6" />
               </div>

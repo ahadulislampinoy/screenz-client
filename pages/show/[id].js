@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import DisplayTrailer from "../../components/DisplayTrailer";
 import Header from "../../components/Header";
+import notFoundImg from "../../public/images/not-found.svg";
 
 const Show = ({ show }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
@@ -16,19 +17,20 @@ const Show = ({ show }) => {
         <title>{show.title || show.original_name}</title>
       </Head>
       <Header />
-      <div className="relative z-50">
-        <div className="relative min-h-[calc(100vh-72px)]">
+      <div className="relative">
+        <div className="relative h-screen">
           <Image
             alt=""
             src={
-              `${BASE_URL}${show.backdrop_path}` ||
-              `${BASE_URL}${show.poster_path}`
+              show?.poster_path || show?.backdrop_path
+                ? `${BASE_URL}${show.backdrop_path || show.poster_path}`
+                : notFoundImg
             }
             layout="fill"
             className="object-cover"
           />
         </div>
-        <div className="absolute inset-y-28 md:inset-y-auto md:bottom-10 inset-x-4 md:inset-x-12 space-y-6 z-50">
+        <div className="absolute bottom-0 left-0 bg-gradient-to-t from-[#000] to-transparent w-full p-4 py-24 px-4 md:px-12 space-y-6 z-50">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             {show.title || show.original_name}
           </h1>
