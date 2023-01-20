@@ -21,7 +21,7 @@ const Header = () => {
             Home
           </Link>
         </li>
-        <li className="header-link-list group">
+        <li className="header-link-list group ">
           <FilmIcon className="h-4" />
           <Link href="/movie" className="header-link">
             Movies
