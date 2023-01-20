@@ -11,7 +11,7 @@ const Show = ({ shows }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="grid grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 space-y-2 my-10 px-8 mx-auto">
+      <div className="grid  grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 space-y-2 my-10 px-8 mx-auto">
         {shows.results.map((show) => (
           <ShowThumbnail key={show.id} show={show} />
         ))}
