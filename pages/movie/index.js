@@ -11,7 +11,7 @@ const Movie = ({ movies }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="grid  grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 space-y-2 my-10 px-8 mx-auto">
+      <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 space-y-2 my-10 px-8 mx-auto">
         {movies.results.map((movie) => (
           <MovieThumbnail key={movie.id} movie={movie} />
         ))}
